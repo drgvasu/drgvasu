@@ -1,4 +1,4 @@
-SeriousDlqin2yrs,NumberOfTime30-59DaysPastDueNotWorse,NumberOfTime60-89DaysPastDueNotWorse,NumberOfTimes90DaysLate,MonthlyIncome,DebtRatio
+SeriousDlqin2yrs,NumberOfTime30_59DaysPastDueNotWorse,NumberOfTime60_89DaysPastDueNotWorse,NumberOfTimes90DaysLate,MonthlyIncome,DebtRatio
 1,2,0,0,9120,0.802982129
 0,0,0,0,2600,0.121876201
 0,1,0,1,3042,0.085113375
