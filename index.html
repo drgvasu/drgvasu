@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DV Analytics — Transforming You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bridge the gap between academia and industry by offering practical, hands-on training with real-world datasets and case studies, while nurturing industry-ready professionals equipped to meet the growing demand for data scientists, analysts, and AI specialists">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://yourdomain.com/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="DV Analytics">
+  <meta property="og:description" content="Bridge the gap between academia and industry by offering practical, hands-on training with real-world datasets and case studies, while nurturing industry-ready professionals equipped to meet the growing demand for data scientists, analysts, and AI specialists">
+  <meta property="og:image" content="assets/dvanalytics-main-logo.png">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:type" content="website">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DV Analytics">
+  <meta name="twitter:description" content="Bridge the gap between academia and industry by offering practical, hands-on training with real-world datasets and case studies, while nurturing industry-ready professionals equipped to meet the growing demand for data scientists, analysts, and AI specialists">
+
+  <!-- JSON-LD structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOrganization",
+    "name":"DV Analytics",
+    "url":"https://yourdomain.com",
+    "logo":"https://yourdomain.com/assets/dvanalytics-main-logo.png",
+    "sameAs":[],
+    "description":"Industry-ready Data Science and AI training with projects and career support."
+  }
+  </script>
+
+  <!-- ========== STYLES (kept inline for single-file deploy) ========== -->
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;line-height:1.5;color:#222;background:#f7f8fb}
+    .container{width:95%;max-width:1200px;margin:0 auto;padding:18px}
+    header{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:56px}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{text-decoration:none;color:#2b3a4a;font-weight:600}
+    .hero{background:linear-gradient(135deg,#123456 0%, #1f8dd6 100%);color:#fff;padding:80px 0;text-align:center}
+    .hero h1{font-size:2.6rem;margin-bottom:12px}
+    .hero p{max-width:900px;margin:0 auto 20px;font-size:1.05rem}
+    .btn{background:#ff4d4f;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block}
+    /* Simple grid */
+    .grid{display:grid;gap:20px}
+    .courses{padding:60px 0;background:#fff}
+    .features{padding:60px 0;background:#f7f8fb}
+    footer{background:#ffffff;color:#262D11;padding:40px 0;margin-top:30px}
+    .newsletter-form{display:flex;gap:8px;max-width:640px;margin:12px auto}
+    .newsletter-form input{flex:1;padding:12px;border-radius:8px;border:1px solid #ddd}
+    .newsletter-form button{padding:12px 18px;border-radius:8px;border:none;background:#1f8dd6;color:#fff}
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:2000;visibility:hidden;opacity:0;transition:opacity .2s}
+    .modal.show{visibility:visible;opacity:1}
+    .modal-card{background:#fff;padding:22px;border-radius:12px;max-width:520px;width:100%}
+    .close{background:none;border:none;font-size:20px;cursor:pointer}
+    /* responsive */
+    @media(max-width:768px){
+      nav ul{display:none}
+    }
+  </style>
+
+  <!-- ========== TRACKING SNIPPETS (placeholders — update IDs) ========== -->
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Replace GA_MEASUREMENT_ID with your measurement id (GEO02)
+    gtag('config','GA_MEASUREMENT_ID');
+    // Simple CTA tracking helper
+    function trackCTA(name) {
+      console.log('CTA clicked:', name);
+      gtag('event','cta_click', {event_category:'CTA', event_label:name});
+    }
+  </script>
+
+  <!-- Meta (Facebook) Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    // Replace PIXEL_ID with your id
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+
+  <!-- Simple CTA dataLayer push helper -->
+  <script>
+    function pushDataLayer(action, label){
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({event:'cta', action: action, label: label});
+      // also log to console
+      console.log('DL push:', action, label);
+    }
+  </script>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="assets/dvanalytics-main-logo.png" alt="DV Analytics Logo" id="site-logo">
+        <div style="font-weight:800;font-size:1.1rem;color:#1f2e3b"> Since 2010</div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#features">Why DV</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="btn" href="#" id="openLead">Request Brochure</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>DV Analytics </h1>
+      <p>Bridge the gap between academia and industry by offering practical, hands-on training with real-world datasets and case studies, while nurturing industry-ready professionals equipped to meet the growing demand for data scientists, analysts, and AI specialists.</p>
+      <a class="btn" href="#courses" onclick="trackCTA('GetStarted')">Get Started</a>
+      <a class="btn" style="background:#ffffff;color:#000000;margin-left:10px" id="openLead2" onclick="trackCTA('DownloadBrochure')">Download Brochure</a>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" class="courses">
+    <div class="container" >
+      <h1 style="text-align:center;margin-bottom:10px;color:#965A32">Our Comprehensive Curriculum</h1>
+      <p style="text-align:center;color:#000000;font-size:2 rem;margin-bottom:34px">16+ years of industry experience condensed into job-ready courses.</p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <div style="background:#EDFFAB;padding:30px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.05)">
+          <h2 class="container">DBMS Programming & Automation</h2><ul><li class="container">Advanced Excel</li><li class="container">SQL DBMS </li><li class="container">SAS DBMS</li><li class="container">Python DBMS</li></ul>
+        </div>
+        <div style="background:#EDFFAB;padding:30px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.05)">
+          <h2 class="container" class="container">Data Visualization</h2><ul><li class="container">Power BI</li><li class="container">Tableau</li><li class="container">SAS Analytics</li><li class="container">Python Analytics</li></ul>
+        </div>
+        <div style="background:#EDFFAB;padding:30px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.05)">
+          <h2 class="container">Advanced Techniqes </h2><ul><li class="container">Machine Learning</li><li class="container">Deep Learning</li><li class="container">Artificial Intelligence</li></ul>
+        </div>
+		<div style="background:#EDFFAB;padding:30px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.05)">
+          <h2 class="container">Cutting-Edge Technologies</h2><ul><li class="container">Prompt Engineering</li><li class="container">Generative AI</li><li class="container">Agentic AI</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h1 style="text-align:center ;color:#1f8dd6">Why DV Analytics</h1>
+      <h2 style="text-align:center;color:#000000;margin-bottom:18px">Our proven approach to data science education sets us apart</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(360px,2fr));">
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">Hands-On Training</h2>
+			<p>Learn by doing with real-world datasets and industry projects that simulate actual workplace challenges.</p>
+		</div>
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">Industry-Oriented Curriculum</h2>
+			<p>Our courses are designed in collaboration with industry experts to ensure relevance to current market needs.</p>
+		</div>		
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">Expert Instructors</h2>
+			<p>Learn from seasoned professionals with years of industry experience and proven teaching methodologies.</p>
+		</div>		
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">100% Success Rate</h2>
+			<p>Our comprehensive approach ensures students are fully prepared for data science roles upon completion.</p>
+		</div>
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">Supportive L&D Team</h2>
+			<p>Our dedicated Learning & Development team provides continuous support throughout your learning journey.</p>
+		</div>
+        <div style="background:#C6EEF3;padding:30px;border-radius:20px;text-align:center;">
+		<div style="
+			width:70px;
+			height:70px;
+			background:#1f8dd6;
+			color:#fff;
+			font-size:32px;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			border-radius:50%;
+			margin:0 auto 15px auto;
+			box-shadow:0 4px 10px rgba(0,0,0,0.1);
+			">
+			✓
+			</div>
+			<h2 style="margin-top:10px;">Career Guidance</h2>
+			<p>Beyond technical skills, we provide career counseling and interview preparation to help you land your dream job.</p>
+		</div>		
+      </div>
+    </div>
+  </section>
+   
+  
+<!-- Testimonials -->
+<section id="testimonials" style="padding:60px 0;background:#f8f9fb;">
+  <div class="container">
+    <h1 style="text-align:center;margin-bottom:10px;"> Hear From Our Alumni</h1>
+    <h2 style="text-align:center;color:#555;margin-bottom:30px;">
+      Success stories from professionals who transformed their careers with DV Analytics
+    </h2>
+
+    <div style="max-width:900px;margin:25px auto;">
+      <blockquote style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.05);font-style:italic;position:relative;">
+        “The hands-on approach at DV Analytics gave me the confidence to tackle real-world data challenges. The curriculum perfectly balanced theory with practical applications, and the instructors were always available to clarify doubts. I landed my dream job within a month of completing the course!”
+        <br><br>
+        <strong>— Priya S.</strong>
+        <div style="margin-top:10px;color:#FFD700;font-size:22px;text-align:center;">
+          ★★★★★
+        </div>
+      </blockquote>
+    </div>
+
+    <div style="max-width:900px;margin:25px auto;">
+      <blockquote style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.05);font-style:italic;">
+        “As a career switcher, I was apprehensive about entering the data science field. DV Analytics' structured curriculum and supportive environment made the transition smooth. The industry projects were particularly valuable, giving me tangible experience to showcase during interviews.”
+        <br><br>
+        <strong>— Rahul V.</strong>
+        <div style="margin-top:10px;color:#FFD700;font-size:22px;text-align:center;">
+          ★★★★★
+        </div>
+      </blockquote>
+    </div>
+
+    <div style="max-width:900px;margin:25px auto;">
+      <blockquote style="background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.05);font-style:italic;">
+        “The Advanced AI and Machine Learning modules at DV Analytics were exceptional. The instructors didn't just teach concepts but showed us how to implement them in real business scenarios. The career guidance sessions helped me negotiate a 40% higher salary than my previous role.”
+        <br><br>
+        <strong>— Anjali P.</strong>
+        <div style="margin-top:10px;color:#FFD700;font-size:22px;text-align:center;">
+          ★★★★★
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Newsletter / Contact -->
+  <section id="contact" style="padding:40px 0;background:#fff">
+    <div class="container">
+      <h2 style="text-align:center">Subscribe for Updates</h2>
+      <form id="newsletterForm" class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+        <input id="newsletterEmail" type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div style="text-align:center;margin-top:12px">
+        <!-- Social share buttons: simple links that open share dialogs -->
+        <a href="#" onclick="share('facebook')" aria-label="Share on Facebook">Share</a> ·
+        <a href="#" onclick="share('linkedin')" aria-label="Share on LinkedIn">LinkedIn</a> ·
+        <a href="#" onclick="share('twitter')" aria-label="Share on Twitter">Twitter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+      <div>
+        <img src="assets/dvanalytics-main-logo.png" alt="DV Analytics" style="height:46px;margin-bottom:8px">
+        <p>Bridging academia and industry since 2010.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>info@dvanalytics.com<br>+91-9019030033<br>+91-8095881188</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style:none;padding:0">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:16px;color:#bcd">&copy; 2025 DV Analytics</div>
+  </footer>
+
+  <!-- ========== LEAD FORM MODAL ========== -->
+  <div id="leadModal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong>Download Brochure & Get Course Details</strong>
+        <button class="close" aria-label="Close" onclick="closeModal()">✕</button>
+      </div>
+      <form id="leadForm" onsubmit="submitLead(event)">
+        <label style="display:block;margin:8px 0">
+          Full Name
+          <input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd">
+        </label>
+        <label style="display:block;margin:8px 0">
+          Email
+          <input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd">
+        </label>
+        <label style="display:block;margin:8px 0">
+          Phone
+          <input name="phone" type="tel" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd">
+        </label>
+
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn" type="submit">Get Brochure</button>
+          <button type="button" onclick="closeModal()" style="background:#eee;border-radius:8px;padding:10px 14px">Cancel</button>
+        </div>
+
+        <p id="leadStatus" style="margin-top:10px;color:#2b7"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Modal controls
+    const leadModal = document.getElementById('leadModal');
+    document.getElementById('openLead').addEventListener('click',openModal);
+    document.getElementById('openLead2').addEventListener('click',openModal);
+    function openModal(e){ e && e.preventDefault(); leadModal.classList.add('show'); leadModal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ leadModal.classList.remove('show'); leadModal.setAttribute('aria-hidden','true'); }
+
+    // Social share helper
+    function share(network){
+      const url = encodeURIComponent(location.href);
+      const text = encodeURIComponent("DV Analytics — Hands-on Data Science training");
+      let shareUrl = '';
+      if(network==='facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      if(network==='linkedin') shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+      if(network==='twitter') shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+      window.open(shareUrl,'shareWindow','width=600,height=400');
+    }
+
+    // Newsletter form uses Formspree fallback: (Option A)
+    function handleNewsletterSubmit(e){
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      // Simple client-side validation
+      if(!email) return alert('Enter an email');
+      // POST to Formspree or your /api endpoint
+      // Replace FORM_ENDPOINT with your Formspree endpoint or /api/sendLead
+      const FORM_ENDPOINT = 'https://formspree.io/f/your-form-id'; // <-- replace
+      fetch(FORM_ENDPOINT, {
+        method:'POST',
+        headers: {'Accept':'application/json','Content-Type':'application/json'},
+        body: JSON.stringify({email: email, source:'newsletter'})
+      }).then(r=>{
+        if(r.ok) { alert('Subscribed — check your email'); } else { alert('Subscription failed, try again'); }
+      }).catch(err=>{
+        console.error(err);
+        alert('Network error — try again');
+      });
+      pushDataLayer('subscribe', email);
+    }
+
+    // Lead form submission flow (submitLead):
+    // 1) Client JS sends lead to /api/sendLead (if you host serverless)
+    // 2) If you don't have serverless, swap endpoint to your Formspree webhook or Zapier webhook
+    async function submitLead(e){
+      e.preventDefault();
+      const form = e.target;
+      const fd = new FormData(form);
+      const payload = {
+        name: fd.get('name'),
+        email: fd.get('email'),
+        phone: fd.get('phone'),
+        source: 'brochure_cta',
+        page: location.href,
+        utm: parseUtmFromUrl()
+      };
+
+      // Minimal validation
+      if(!payload.email || !payload.name) { alert('Please fill name and email'); return; }
+
+      // Where to send leads:
+      // Option 1 (recommended for quick setup): Formspree / Zapier webhook
+      // Option 2 (production): /api/sendLead serverless (SendGrid + CSV)
+      // Edit BOTH places below to match your preferred endpoint
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your-form-id'; // <-- replace if using Formspree
+      const SERVERLESS_ENDPOINT = '/api/sendLead'; // <-- if you deploy sendLead.js on Vercel/Netlify
+
+      // Try serverless first, fallback to Formspree
+      try {
+        const res = await fetch(SERVERLESS_ENDPOINT, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        if(res.ok){
+          document.getElementById('leadStatus').textContent = 'Thanks — check your email for the brochure.';
+          // Trigger brochure download
+          triggerBrochureDownload();
+          // tracking
+          pushDataLayer('lead', payload.email);
+          fbq && fbq('track','Lead');
+          gtag && gtag('event','lead',{method:'website'});
+          setTimeout(()=> closeModal(), 1200);
+          return;
+        } else {
+          // fallback to Formspree
+          throw new Error('Serverless failed — falling back');
+        }
+      } catch (err) {
+        console.warn(err);
+        // Fallback to Formspree
+        try {
+          const res2 = await fetch(FORMSPREE_ENDPOINT, {
+            method:'POST',
+            headers:{'Accept':'application/json','Content-Type':'application/json'},
+            body: JSON.stringify(payload)
+          });
+          if(res2.ok){
+            document.getElementById('leadStatus').textContent = 'Thanks — check your email for the brochure.';
+            triggerBrochureDownload();
+            setTimeout(()=> closeModal(),1200);
+            return;
+          } else {
+            throw new Error('Fallback failed');
+          }
+        } catch (e){
+          console.error(e);
+          alert('Sorry — lead capture failed. Please email info@dvanalytics.com');
+        }
+      }
+    }
+
+    function triggerBrochureDownload(){
+      // Brochure path — ensure you uploaded it to /assets/brochure-dv-analytics.pdf
+      const link = document.createElement('a');
+      link.href = 'assets/brochure-dv-analytics.pdf';
+      link.download = 'DVAnalytics-Brochure.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function parseUtmFromUrl(){
+      const params = new URLSearchParams(location.search);
+      return {
+        utm_source: params.get('utm_source'),
+        utm_medium: params.get('utm_medium'),
+        utm_campaign: params.get('utm_campaign'),
+        utm_term: params.get('utm_term'),
+        utm_content: params.get('utm_content')
+      };
+    }
+
+    // small helper: open modal when page param action=request_brochure is provided
+    (function(){
+      if(new URLSearchParams(location.search).get('action')==='request_brochure'){
+        openModal();
+      }
+    })();
+
+  </script>
+
+</body>
+</html>
